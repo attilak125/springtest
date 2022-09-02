@@ -1,1 +1,1 @@
-web: -Dserver.port=$PORT
+web: java -jar build/libs/demo-1.0.jar
