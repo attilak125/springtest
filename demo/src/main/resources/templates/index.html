@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${hello}"></h1>
+
+<div th:unless="${traininglist.isEmpty()}">
+<h1>These are the current trainings that were added</h1>
+<ul th:each="training : ${traininglist}" th:object="${training}">
+    <li th:utext="${training.getDetail()}"></li>
+</ul>
+</div>
+<h1 th:if="${traininglist.isEmpty()}">We need some training please add one.</h1>
+
+<h1>Add new training</h1>
+<form action="/add" method="post">
+<textarea name="training">
+</textarea><br>
+    <input type="submit" value="Add new training">
+</form>
+
+</body>
+</html>
